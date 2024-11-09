@@ -1,0 +1,164 @@
+body{
+  background-color: #98C8DE;
+  padding: 0;
+  margin: 0;
+  font-family: gameFont;
+}
+
+#screen{
+  background-color: green;
+
+  height: 23rem;
+  width: 80%;
+}
+
+#screen img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  
+
+}
+
+#pokedex{
+  background-color:#ff3334;
+  width: 20rem;
+  height: 30rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+
+#pokeInfo{
+  background-color:#636363;
+  margin-top: 1rem;
+  width: 80%;
+  height: 30%;
+}
+
+#pokeName{
+  font-size: 0.6rem;
+  padding: 0.35rem;
+  text-align: center;
+  width: 92%;
+  background-color: #83c238;
+  margin: 0.5rem auto;
+
+}
+
+#buttons{
+  font-size: 0.65rem;
+  
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#buttons p{
+  text-align: center;
+  padding: 0.2rem 1rem;
+  width: 30%;
+}
+
+#previous{
+  background-color: red;
+}
+
+#next{
+  background-color: greenyellow;
+}
+
+#types{
+  display: flex;
+  justify-content: space-around;
+}
+
+#typeTitle{
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+#types p{
+  font-size: 0.65rem;
+  text-align: center;
+  width: 30%;
+  padding: 0.5rem;
+  margin: 0 0em;
+}
+
+@font-face {
+  font-family: gameFont;
+  src: url("../pages/fonts/Early\ GameBoy.ttf");
+}
+
+.grass{
+  background-color: greenyellow;
+}
+
+.poison{
+  background-color: rgb(218, 126, 218);
+}
+
+.normal{
+  background-color: #b8b0b0;
+}
+
+.fairy{
+  background-color: pink;
+}
+
+.flying{
+  background-color: rgb(250, 228, 228);
+}
+
+.bug{
+  background-color: green;
+}
+
+.ground{
+  background-color: burlywood;
+}
+
+.fire{
+  background-color: orange;
+}
+
+.water{
+  background-color: rgb(47, 236, 250);
+}
+
+.psychic{
+  background-color: rgb(134, 84, 134);
+}
+
+.fighting{
+  background-color: rgb(175, 84, 84);
+}
+
+.rock{
+  background-color: #9b8686;
+}
+
+.ghost{
+  background-color: purple;
+}
+
+.electric{
+  background-color: yellow;
+}
+
+.ice{
+  background-color: rgb(125, 247, 247);
+}
+
+.dragon{
+  background-color: rgb(55, 55, 230);
+}
+
+.none{
+  background-color: #636363;
+}
+
