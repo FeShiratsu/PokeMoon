@@ -12,3 +12,20 @@ export function getPokemon(index){
         return;
     }
 }
+
+export function getDescription(pokeData){
+    if(pokeData){
+        const descLink = pokeData.species.url;
+        const fetcher = url => fetch(url).then(r => r.json())
+        const {data,error} = useSWR(descLink,fetcher);
+        
+        if(data){
+            console.log(data);
+            return data;
+        }else{
+            return;
+        }
+    }else{
+        return;
+    }
+}

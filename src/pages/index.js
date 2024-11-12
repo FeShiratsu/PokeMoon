@@ -1,7 +1,11 @@
-import { getPokemon } from "@/getting/pokeInfo";
+import {  getPokemon } from "@/getting/pokeInfo";
 import { useEffect, useState } from "react";
 import styles from '@/styles/Home.module.css'
 import pic from '../../public/cam.png'
+import notMute from '../../public/sound.png'
+import muted from '../../public/muted.png'
+import download from '../../public/download.png'
+import PokeDesc from "@/components/pokeDesc";
 export default function Home() {
   const [number, setNumber] = useState(1);
   let typeSpace;
@@ -12,7 +16,10 @@ export default function Home() {
   let cry;
   let pokenumber;
   let region;
+  let sprite = "";
+  const [sound,setSound] = useState(true); 
   data = getPokemon(number);
+  
   if (!data) {
     typeSpace =
       <>
@@ -20,16 +27,16 @@ export default function Home() {
 
       </>
   } else {
-
+    
     pokeName = data.name;
     pokenumber = data.order;
     region =
-      console.log("cry: " + data.cries.latest);
     cry = new Audio(data.cries.latest);
-    cry.volume = 0.08;
+    cry.volume = (sound)?0.08:0;
     cry.pause();
     cry.play();
-    pokeImg = <img src={data.sprites.front_default} />
+    pokeImg = <img id="spriteImg" src={data.sprites.front_default} />
+    sprite  = data.sprites.front_default;
     if (data.types.length == 1) {
       const type1 = data.types[0].type.name;
       mainType = type1;
@@ -51,8 +58,11 @@ export default function Home() {
       <div id="entireDex">
         <div id="pokedex">
           <div id="cameraBorder"><div id="camera"></div></div>
-          <div className={mainType+" "+"screen"}>
-            <p>Number: {pokenumber} {pokenumber}</p>
+          <div className={mainType + " " + "screen"}>
+            <p >
+              Number: {pokenumber} 
+              <img onClick={()=>{setSound(!sound)}} id="mute" src={(sound)?notMute.src:muted.src}/>
+            </p>
             {pokeImg}
           </div>
           <div id="pokeInfo">
@@ -70,9 +80,15 @@ export default function Home() {
 
 
         <div id="pokeDetails">
-           <div className={mainType+" "+"screen"} id="" >
-              <p>Lorem Ipsum is simply dummy text of the printing and.</p>
-           </div>
+          <div className={mainType + " " + "screen"} id="" >
+            <PokeDesc data={data}></PokeDesc>
+          </div>
+          <ul id="extraBtns">
+            <button onClick={()=>{(cry)?cry.play():null}}>
+              <img src={notMute.src} />
+            </button>
+
+          </ul>
         </div>
       </div>
 
@@ -80,4 +96,6 @@ export default function Home() {
     </main>
   );
 }
+
+
 
